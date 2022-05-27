@@ -27,7 +27,7 @@ const commentsSchema = {
 
  const Comment = mongoose.model("Comment", commentsSchema);
 
-app.get("/home", function(req, res){
+app.get("/", function(req, res){
   Comment.find({}, function(err, comments){
     res.render("home", {
       startingContent: homeStartingContent,
@@ -36,7 +36,7 @@ app.get("/home", function(req, res){
   })
 });
 
-app.post("/home", function(req, res){
+app.post("/", function(req, res){
   // const comment = {
   //   user: req.body.user,
   //   comment: req.body.comment
@@ -51,7 +51,7 @@ app.post("/home", function(req, res){
   
   newComment.save(function(err){
     if (!err){
-      res.redirect("/home");
+      res.redirect("/");
     }
   });
 
