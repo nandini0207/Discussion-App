@@ -1,0 +1,24 @@
+<%- include("Partials/header"); -%>
+<h1>Today's Discussion</h1>
+<p> <%= startingContent %> </p>
+<br>
+<% comments.forEach(function(comment){ %>
+        <h4>    <strong><%=comment.user%>: </strong></h4>
+        <p>     <%=comment.comment%></p>
+<% }) %>
+<br>
+<div class="userComments">
+    <form class="" action="/home" method="post">
+        <div class="form-group">
+            <label>User</label>
+            <br>
+            <input class="form-control" type="text" name="user">
+            <br>
+            <label>Your Comment</label>
+            <br>
+            <textarea class="form-control" name="comment" rows="2" cols="30"></textarea>
+        </div>
+        <button class="btn btn-danger" type="submit" name="button">Post your comment</button>
+    </form>
+</div>
+<%- include("Partials/footer"); -%>
